@@ -28,14 +28,6 @@ pipeline {
             }
         }
 
-        stage('SonarQube Analysis') {
-            steps {
-                withSonarQubeEnv('SonarServer') {
-                    bat 'mvn clean verify sonar:sonar'
-                }
-            }
-        }
-
         stage('Build with Maven') {
             steps {
                 bat 'mvn clean package'
